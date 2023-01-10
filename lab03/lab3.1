@@ -1,0 +1,31 @@
+#Lab 2 em assembler
+.org 0x000
+comeco:
+    LOAD MQ, M(gravidade)   #Carrega valor da gravidade na memoria 
+    MUL M(distancia)        #Faz a multiplicação da distancia pela gravidade
+    LOAD MQ
+    STOR M(gx)              #gx = 112 por enquanto
+    RSH
+    STOR M(k)               #k = 113 por enquanto
+laco:
+    LOAD M(gx)              #Carrega o valor de gx na memoria 
+    DIV M(k)                #Divide gx por k
+    LOAD MQ
+    ADD M(k)
+    RSH
+    STOR M(k)
+    LOAD M(contador)        #contador = 114 por enquanto
+    SUB M(um)
+    STOR M(contador)
+    JUMP+ M(laco)
+fim:
+    LOAD M(k)
+    JUMP M(1024)
+    
+.org 0x110
+distancia:  .skip 1
+gravidade:  .word 0000000010
+contador:   .skip 1
+um:         .word 0000000001
+gx:         .skip 1
+k:          .skip 1

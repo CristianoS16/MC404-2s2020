@@ -1,0 +1,15 @@
+#Cristiano Sampaio Pinheiro RA:256352
+000 01 3FD 06 098	#Carrega tamanho dos vetores na memoria e subtrai 1
+001 21 3FD 01 3FE	#Sobrescreve tamanho anterior e carrega enderreço do inicio do vetor 1 na memoria 
+002 05 099 13 004	#Adiciona o contador(099) ao enderreço e modifica enderreço na segunda palavra do enderreço 004
+003 01 3FF 05 099	#Carrega enderreço do inicio do vetor 2 e adiciona o contador(099) a ele
+004 12 005 09 000	#Mofidica o enderreço da primeira palavra do enderreço 005 e carrega o numero a ser multiplicado
+005 0B 000 0A 000	#Multiplica os numeros e transfere o resultado de MQ para AC
+006 05 097 21 097	#Incrementa a soma(097) com o novo valor e a sobrescreve
+007 01 099 05 098	#Incrementa o valor do contador(099)
+008 21 099 01 3FD	#Sobrescreve o valor do contador(099) e carrega o tamanho do vetor na memoria 
+009 06 099 10 001	#Subtrai o contador(099) do tamanho do vetor e verifica condição de salto para segunda palavra de 001
+00A 01 097 0D 400	#Coloca o valor final do produto escalar em AC e salta para uma posicao invalida de memoria
+097 00 000 00 000	#Resultado do produto escalar
+098 00 000 00 001	#Incremento para o contador
+099 00 000 00 000	#Contador i

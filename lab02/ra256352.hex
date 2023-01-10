@@ -1,0 +1,15 @@
+#Cristiano Sampaio Pinheiro RA:256352
+000 09 111 0B 110	#Carrega o valor da gravidade(111) para MQ e o multiplica pela distancia(110)
+001 0A 000 21 112	#Transfere o resultado de MQ para AC e salva gx no endereço 112
+002 15 000 21 113	#Divide o resultado por 2 e salva K no endereço 113
+#Inicia loop para calcular a raiz quadrada
+003 01 112 0C 113	#Coloca valor de gx(112) em AC e divede por k(113)
+004 0A 000 05 113	#Transfere o resultado de MQ para AC e adiciona o valor de K(113)
+005 15 000 21 113	#Divide o valor de AC por 2 e sobrescreve o valor de K(113)
+006 01 114 06 115	#Coloca a variavel do contador(114) em AC e a decrementa
+007 21 114 0F 003	#Sobrescreve o valor do contador(114) e verifica se deve continuar o laço 
+008 01 113 0D 400	#Carrega o valor final para velocidade(113) para AC e salta para uma posição invalida de memoria
+110 00 000 06 e92	#Define a distancia
+111 00 000 00 00A	#Define o valor da gravidade
+114 00 000 00 009	#Contador para o laço
+115 00 000 00 001	#Constante para decrementar o contador
